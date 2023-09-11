@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} {{ article.title }} {% endblock title %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body"> 
+            <h2>Postni o'chirish</h2>
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                <p>{{ article.title }} sarlavhasi ostidagi postni o'chirishni hohlaysizmi?</p>
+                <button type="submit" class="btn btn-primary">Ha</button>
+            </form>
+            <a href="{% url 'article_detail' article.pk %}" style="margin-left:70px;margin-top:-53px" type="submit" class="btn btn-danger">Yo'q</a>
+        </div>
+    </div>
+{% endblock content %}
